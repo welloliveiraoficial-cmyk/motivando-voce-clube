@@ -1,267 +1,107 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8"><meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  <meta charset="UTF-8">
 
-«»
-
-  <meta name="theme-color" content="#6C2BD9"><meta
-name="description"
-content="Motivando Você Clube — inspiração, motivação e histórias que transformam."
-
-«»
-
-  <title>Motivando Você Clube</title>  <link rel="stylesheet" href="style.css">
-</head><body>  <!-- TELA DE ABERTURA -->  <section id="splashScreen" class="screen splash-screen"><div class="splash-content">
-
-  <div class="logo-container">
-    <img
-      src="assets/logo.png"
-      alt="Motivando Você Clube"
-      class="app-logo"
-    >
-  </div>
-
-  <div class="loading-area">
-    <div class="loading-bar">
-      <div class="loading-progress"></div>
-    </div>
-
-    <p class="loading-text">Preparando seu momento...</p>
-  </div>
-
-</div>
-
-  </section>  <!-- TELA DE LOGIN -->  <section id="loginScreen" class="screen login-screen hidden"><div class="login-content">
-
-  <div class="login-logo-container">
-    <img
-      src="assets/logo.png"
-      alt="Motivando Você Clube"
-      class="login-logo"
-    >
-  </div>
-
-  <div class="login-title-area">
-    <h1>Motivando Você</h1>
-    <p>Clube</p>
-
-    <span>
-      Cuidando da sua mente, inspirando seus dias.
-    </span>
-  </div>
-
-  <div class="login-card">
-
-    <h2>Bem-vindo!</h2>
-
-    <p class="login-description">
-      Como podemos chamar você?
-    </p>
-
-    <div class="input-container">
-
-      <input
-        type="text"
-        id="nameInput"
-        placeholder="Digite seu nome"
-        maxlength="30"
-        autocomplete="given-name"
-      >
-
-    </div>
-
-    <button id="continueButton" class="primary-button">
-      <span>Continuar</span>
-      <span class="button-arrow">→</span>
-    </button>
-
-  </div>
-
-  <p class="login-footer">
-    Um dia de cada vez. Uma motivação de cada vez. ❤️
-  </p>
-
-</div>
-
-  </section>  <!-- TELA PRINCIPAL -->  <section id="homeScreen" class="screen home-screen hidden"><header class="home-header">
-
-  <div class="header-text">
-
-    <p class="welcome-small">
-      Olá,
-    </p>
-
-    <h1 id="userName">
-      Você
-    </h1>
-
-    <p class="welcome-message">
-      Que bom ter você aqui! ✨
-    </p>
-
-  </div>
-
-  <button
-    id="profileButton"
-    class="profile-button"
-    aria-label="Perfil"
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   >
-    <span id="profileInitial">V</span>
-  </button>
 
-</header>
+  <meta name="theme-color" content="#031A3D">
+
+  <meta
+    name="description"
+    content="Motivando Você Clube — Histórias, inspiração e esperança para uma vida melhor."
+  >
+
+  <title>Motivando Você Clube</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       TELA DE ABERTURA
+  =========================================== -->
+
+  <section id="splashScreen" class="splash-screen">
+
+    <!-- Brilho decorativo -->
+    <div class="ambient-light light-one"></div>
+    <div class="ambient-light light-two"></div>
 
 
-<main class="home-content">
+    <!-- Imagem de fundo -->
+    <div class="splash-background"></div>
 
-  <div class="daily-card">
 
-    <div class="daily-icon">
-      ✨
+    <!-- Escurecimento -->
+    <div class="splash-overlay"></div>
+
+
+    <!-- Conteúdo -->
+    <div class="splash-content">
+
+      <div class="splash-logo-area">
+
+        <img
+          src="assets/logo.png"
+          alt="Motivando Você Clube"
+          class="splash-logo"
+        >
+
+      </div>
+
+
+      <div class="splash-text">
+
+        <p class="splash-description">
+          Histórias, inspiração<br>
+          e esperança para<br>
+          uma vida melhor.
+        </p>
+
+      </div>
+
+
+      <!-- Área inferior -->
+      <div class="loading-area">
+
+        <div class="loading-bar">
+
+          <div class="loading-progress"></div>
+
+        </div>
+
+        <p class="loading-text">
+          Carregando...
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="daily-text">
-
-      <span class="daily-label">
-        MOTIVAÇÃO DO DIA
-      </span>
-
-      <h2 id="dailyPhrase">
-        Acredite em você. Grandes mudanças começam com pequenos passos.
-      </h2>
-
-    </div>
-
-  </div>
+  </section>
 
 
-  <h2 class="section-title">
-    O que você precisa hoje?
-  </h2>
+  <!-- ==========================================
+       LOGIN
+       Será desenvolvido na próxima etapa
+  =========================================== -->
+
+  <section
+    id="loginScreen"
+    class="login-screen hidden"
+  >
+
+  </section>
 
 
-  <div class="feature-grid">
+  <script src="script.js"></script>
 
-    <button class="feature-card">
+</body>
 
-      <div class="feature-icon">
-        💜
-      </div>
-
-      <h3>Motivação</h3>
-
-      <p>
-        Palavras para fortalecer seu dia.
-      </p>
-
-    </button>
-
-
-    <button class="feature-card">
-
-      <div class="feature-icon">
-        🌟
-      </div>
-
-      <h3>Inspiração</h3>
-
-      <p>
-        Histórias que podem transformar.
-      </p>
-
-    </button>
-
-
-    <button class="feature-card">
-
-      <div class="feature-icon">
-        ❤️
-      </div>
-
-      <h3>Favoritos</h3>
-
-      <p>
-        Guarde seus momentos especiais.
-      </p>
-
-    </button>
-
-
-    <button class="feature-card">
-
-      <div class="feature-icon">
-        🤝
-      </div>
-
-      <h3>Clube</h3>
-
-      <p>
-        Faça parte dessa comunidade.
-      </p>
-
-    </button>
-
-  </div>
-
-</main>
-
-
-<nav class="bottom-navigation">
-
-  <button class="nav-item active">
-
-    <span class="nav-icon">
-      🏠
-    </span>
-
-    <span>
-      Início
-    </span>
-
-  </button>
-
-
-  <button class="nav-item">
-
-    <span class="nav-icon">
-      ✨
-    </span>
-
-    <span>
-      Inspirar
-    </span>
-
-  </button>
-
-
-  <button class="nav-item">
-
-    <span class="nav-icon">
-      ❤️
-    </span>
-
-    <span>
-      Favoritos
-    </span>
-
-  </button>
-
-
-  <button class="nav-item">
-
-    <span class="nav-icon">
-      👤
-    </span>
-
-    <span>
-      Perfil
-    </span>
-
-  </button>
-
-</nav>
-
-  </section>  <script src="script.js"></script></body>
 </html>
