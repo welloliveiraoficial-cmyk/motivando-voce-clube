@@ -1,161 +1,44 @@
-const splashScreen = document.getElementById("splashScreen");
-const loginScreen = document.getElementById("loginScreen");
-const homeScreen = document.getElementById("homeScreen");
+/* =========================================================
+   MOTIVANDO VOCÊ CLUBE — LÓGICA GERAL
+   ========================================================= */
 
-const nameInput = document.getElementById("nameInput");
-const continueButton = document.getElementById("continueButton");
-
-const userName = document.getElementById("userName");
-const profileInitial = document.getElementById("profileInitial");
-
-/* =========================
-INICIALIZAÇÃO
-========================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-const savedName = localStorage.getItem("motivandoUsuario");
-
-setTimeout(() => {
-
-splashScreen.classList.add("hidden");
-
-if (savedName) {
-  openHome(savedName);
-} else {
-  loginScreen.classList.remove("hidden");
-}
-
-}, 2600);
-
+document.addEventListener('DOMContentLoaded', function () {
+  iniciarTelaAbertura();
 });
 
-/* =========================
-CONTINUAR
-========================= */
+/**
+ * Controla a animação da barra de carregamento na tela de abertura
+ * e prepara a transição para a próxima tela (login), que será
+ * implementada na próxima fase do projeto.
+ */
+function iniciarTelaAbertura() {
+  var barra = document.getElementById('barra-carregamento');
 
-continueButton.addEventListener("click", () => {
+  if (!barra) return;
 
-const name = nameInput.value.trim();
+  // Anima a barra de carregamento suavemente até 100%
+  requestAnimationFrame(function () {
+    barra.style.transition = 'width 2.4s ease-in-out';
+    barra.style.width = '100%';
+  });
 
-if (!name) {
-
-nameInput.focus();
-
-nameInput.style.borderColor = "#d94b72";
-
-setTimeout(() => {
-  nameInput.style.borderColor = "";
-}, 1200);
-
-return;
-
+  // Quando o carregamento terminar, o app seguirá para a tela de login.
+  // Por enquanto, apenas registramos o fim do carregamento no console.
+  setTimeout(function () {
+    console.log('Carregamento concluído. Próxima etapa: tela de login.');
+    // Exemplo de como a transição será feita futuramente:
+    // trocarTela('tela-abertura', 'tela-login');
+  }, 2800);
 }
 
-localStorage.setItem("motivandoUsuario", name);
+/**
+ * Função utilitária para trocar de tela — será usada
+ * conforme novas telas forem adicionadas (login, início, etc.).
+ */
+function trocarTela(idAtual, idProxima) {
+  var atual = document.getElementById(idAtual);
+  var proxima = document.getElementById(idProxima);
 
-openHome(name);
-
-});
-
-/* =========================
-ENTER NO CAMPO
-========================= */
-
-nameInput.addEventListener("keydown", (event) => {
-
-if (event.key === "Enter") {
-continueButton.click();
+  if (atual) atual.classList.remove('tela-ativa');
+  if (proxima) proxima.classList.add('tela-ativa');
 }
-
-});
-
-/* =========================
-ABRIR HOME
-========================= */
-
-function openHome(name) {
-
-loginScreen.classList.add("hidden");
-
-homeScreen.classList.remove("hidden");
-
-userName.textContent = name;
-
-profileInitial.textContent =
-name.charAt(0).toUpperCase();
-
-}
-
-/* =========================
-FRASES MOTIVACIONAIS
-========================= */
-
-const motivationalPhrases = [
-
-"Acredite em você. Grandes mudanças começam com pequenos passos.",
-
-"Você não precisa ser perfeito. Precisa apenas continuar.",
-
-"O seu momento pode começar exatamente hoje.",
-
-"Não desista de você. Ainda existem capítulos lindos para viver.",
-
-"Respire fundo. Você já superou dias que achou que não conseguiria.",
-
-"Tenha coragem para recomeçar quantas vezes forem necessárias.",
-
-"Acredite: coisas boas também podem acontecer com você."
-
-];
-
-function changeDailyPhrase() {
-
-const day = new Date().getDate();
-
-const index =
-day % motivationalPhrases.length;
-
-const phrase =
-motivationalPhrases[index];
-
-const phraseElement =
-document.getElementById("dailyPhrase");
-
-if (phraseElement) {
-phraseElement.textContent = phrase;
-}
-
-}
-
-changeDailyPhrase();
-
-/* =========================
-EFEITO NOS CARDS
-========================= */
-
-document.querySelectorAll(".feature-card").forEach(card => {
-
-card.addEventListener("click", () => {
-
-card.animate(
-  [
-    {
-      transform: "scale(1)"
-    },
-    {
-      transform: "scale(0.94)"
-    },
-    {
-      transform: "scale(1)"
-    }
-  ],
-  {
-    duration: 250,
-    easing: "ease-out"
-  }
-);
-
-});
-
-});
