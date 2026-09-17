@@ -1,764 +1,178 @@
-/* =====================================================
-   MOTIVANDO VOCÊ CLUBE
-   TELA DE ABERTURA
-   ===================================================== */
+/* =========================================================
+   MOTIVANDO VOCÊ CLUBE — ESTILOS GERAIS
+   ========================================================= */
 
+:root{
+  --azul-escuro:#08132e;
+  --azul-medio:#0d1f4d;
+  --azul-claro:#1e3a75;
+  --dourado:#f4c04a;
+  --dourado-claro:#ffe08a;
+  --branco:#f8f9ff;
+}
 
-/* =====================================================
-   RESET
-   ===================================================== */
-
-* {
+*{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-
-html,
-body {
+html, body{
+  height: 100%;
   width: 100%;
-  min-height: 100%;
-}
-
-
-body {
   overflow: hidden;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-  background: #031a3d;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--azul-escuro);
+  color: var(--branco);
 }
 
-
-/* =====================================================
-   TELA
-   ===================================================== */
-
-.splash-screen {
-
-  position: relative;
-
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      #021633 0%,
-      #03285a 42%,
-      #031a3d 100%
-    );
-
-  color: #ffffff;
-
-}
-
-
-/* =====================================================
-   FUNDO CINEMATOGRÁFICO
-   ===================================================== */
-
-.splash-background {
-
-  position: absolute;
-
+.tela{
+  position: fixed;
   inset: 0;
-
-  background:
-
-    radial-gradient(
-      ellipse at 50% 76%,
-      rgba(255, 174, 48, 0.32) 0%,
-      rgba(255, 151, 33, 0.12) 18%,
-      transparent 42%
-    ),
-
-    radial-gradient(
-      ellipse at 50% 45%,
-      rgba(0, 120, 255, 0.28) 0%,
-      transparent 55%
-    ),
-
-    linear-gradient(
-      180deg,
-      #021631 0%,
-      #063568 48%,
-      #092b55 70%,
-      #03152f 100%
-    );
-
-  transform: scale(1.05);
-
-}
-
-
-/* =====================================================
-   EFEITO DE LUZ NO HORIZONTE
-   ===================================================== */
-
-.splash-background::before {
-
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 20%;
-
-  width: 170px;
-  height: 170px;
-
-  transform: translateX(-50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 209, 75, 0.95) 0%,
-      rgba(255, 170, 42, 0.55) 18%,
-      rgba(255, 145, 20, 0.15) 45%,
-      transparent 70%
-    );
-
-  filter: blur(4px);
-
-  animation: sunGlow 3s ease-in-out infinite alternate;
-
-}
-
-
-/* =====================================================
-   SIMULAÇÃO DE MONTANHAS
-   ===================================================== */
-
-.splash-background::after {
-
-  content: "";
-
-  position: absolute;
-
-  left: -10%;
-  bottom: -4%;
-
-  width: 120%;
-  height: 38%;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      transparent 0 24%,
-      rgba(5, 23, 48, 0.95) 25% 42%,
-      transparent 43%
-    ),
-
-    linear-gradient(
-      35deg,
-      transparent 0 28%,
-      rgba(3, 18, 40, 0.96) 29% 54%,
-      transparent 55%
-    ),
-
-    linear-gradient(
-      155deg,
-      transparent 0 46%,
-      rgba(2, 14, 32, 1) 47% 100%
-    );
-
-}
-
-
-/* =====================================================
-   CAMADA ESCURA
-   ===================================================== */
-
-.splash-overlay {
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-
-    linear-gradient(
-      180deg,
-      rgba(0, 10, 28, 0.15) 0%,
-      rgba(0, 14, 35, 0.08) 40%,
-      rgba(0, 8, 22, 0.62) 82%,
-      rgba(0, 6, 17, 0.90) 100%
-    );
-
-  z-index: 2;
-
-}
-
-
-/* =====================================================
-   LUZES AMBIENTAIS
-   ===================================================== */
-
-.ambient-light {
-
-  position: absolute;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  z-index: 1;
-
-}
-
-
-.light-one {
-
-  width: 280px;
-  height: 280px;
-
-  top: -130px;
-  right: -120px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(20, 126, 255, 0.20),
-      transparent 70%
-    );
-
-  filter: blur(20px);
-
-  animation: ambientMove 6s ease-in-out infinite alternate;
-
-}
-
-
-.light-two {
-
-  width: 230px;
-  height: 230px;
-
-  bottom: 8%;
-  left: -120px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 193, 48, 0.12),
-      transparent 70%
-    );
-
-  filter: blur(25px);
-
-  animation: ambientMoveTwo 7s ease-in-out infinite alternate;
-
-}
-
-
-/* =====================================================
-   CONTEÚDO
-   ===================================================== */
-
-.splash-content {
-
-  position: relative;
-
-  z-index: 5;
-
   width: 100%;
   height: 100%;
+  display: none;
+}
 
+.tela-ativa{
+  display: block;
+}
+
+/* =========================================================
+   TELA DE ABERTURA
+   ========================================================= */
+
+#tela-abertura{
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
-  justify-content: center;
-
-  padding:
-
-    env(safe-area-inset-top)
-
-    28px
-
-    env(safe-area-inset-bottom);
-
+  background: var(--azul-escuro);
 }
 
-
-/* =====================================================
-   LOGO
-   ===================================================== */
-
-.splash-logo-area {
-
-  position: relative;
-
-  width: 245px;
-  height: 245px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-top: -70px;
-
-  animation: logoEntrance 1.2s ease-out both;
-
-}
-
-
-/* brilho atrás da logo */
-
-.splash-logo-area::before {
-
-  content: "";
-
+.bg-foto{
   position: absolute;
-
-  width: 230px;
-  height: 230px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 196, 55, 0.20) 0%,
-      rgba(0, 124, 255, 0.13) 35%,
-      transparent 70%
-    );
-
-  filter: blur(18px);
-
-  animation: logoGlow 3s ease-in-out infinite alternate;
-
-}
-
-
-/* logo */
-
-.splash-logo {
-
-  position: relative;
-
-  width: 225px;
-  max-width: 82vw;
-
-  height: auto;
-
-  object-fit: contain;
-
-  filter:
-
-    drop-shadow(
-      0 0 12px rgba(255, 194, 50, 0.28)
-    )
-
-    drop-shadow(
-      0 12px 28px rgba(0, 0, 0, 0.50)
-    );
-
-  animation: logoFloat 4s ease-in-out infinite;
-
-}
-
-
-/* =====================================================
-   TEXTO
-   ===================================================== */
-
-.splash-text {
-
-  margin-top: -12px;
-
-  text-align: center;
-
-  animation: textEntrance 1.2s 0.35s ease-out both;
-
-}
-
-
-.splash-description {
-
-  color: rgba(255, 255, 255, 0.94);
-
-  font-size: 17px;
-
-  line-height: 1.35;
-
-  font-weight: 400;
-
-  letter-spacing: 0.2px;
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.65);
-
-}
-
-
-/* =====================================================
-   CARREGAMENTO
-   ===================================================== */
-
-.loading-area {
-
-  position: absolute;
-
-  bottom: 7.5%;
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  width: min(210px, 65vw);
-
-  text-align: center;
-
-  animation: textEntrance 1s 0.6s ease-out both;
-
-}
-
-
-/* barra */
-
-.loading-bar {
-
+  inset: 0;
   width: 100%;
-
-  height: 6px;
-
-  overflow: hidden;
-
-  border-radius: 20px;
-
-  background:
-    rgba(255, 255, 255, 0.18);
-
-  box-shadow:
-    inset 0 1px 3px rgba(0, 0, 0, 0.45),
-    0 0 12px rgba(0, 0, 0, 0.20);
-
-}
-
-
-/* progresso */
-
-.loading-progress {
-
-  width: 0%;
-
   height: 100%;
-
-  border-radius: 20px;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #f5b51b,
-      #ffd84a,
-      #fff1a3,
-      #f5b51b
-    );
-
-  box-shadow:
-    0 0 10px rgba(255, 203, 55, 0.85);
-
-  animation:
-    loadingProgress 2.8s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    forwards;
-
+  object-fit: cover;
+  z-index: 0;
 }
 
+.overlay-abertura{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(8,19,46,0.95) 0%,
+    rgba(8,19,46,0.68) 22%,
+    rgba(8,19,46,0.40) 45%,
+    rgba(8,19,46,0.35) 55%,
+    rgba(8,19,46,0.88) 85%,
+    rgba(8,19,46,0.98) 100%);
+}
 
-/* texto */
+.conteudo-abertura{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 9vh;
+}
 
-.loading-text {
+.logo-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 1.2s ease-out both;
+}
 
-  margin-top: 10px;
+.logo-abertura{
+  width: min(230px, 55vw);
+  height: auto;
+  filter: drop-shadow(0 0 28px rgba(244,192,74,0.45));
+  animation: brilho 3s ease-in-out infinite;
+}
 
-  color:
-    rgba(255, 255, 255, 0.82);
+.tagline-abertura{
+  margin-top: auto;
+  margin-bottom: 17vh;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: rgba(248,249,255,0.95);
+  max-width: 280px;
+  padding: 0 24px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  animation: fadeInUp 1.4s ease-out both;
+}
 
+.loading-wrap{
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.loading-track{
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+
+.loading-bar{
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
+}
+
+.loading-label{
   font-size: 12px;
-
-  letter-spacing: 0.4px;
-
-  text-shadow:
-    0 1px 5px rgba(0, 0, 0, 0.65);
-
+  color: rgba(248,249,255,0.7);
+  letter-spacing: 1px;
 }
 
-
-/* =====================================================
-   ESCONDER TELAS FUTURAS
-   ===================================================== */
-
-.hidden {
-
-  display: none !important;
-
+.footer-msg{
+  position: absolute;
+  bottom: 2.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(244,192,74,0.85);
+  text-transform: uppercase;
+  z-index: 3;
+  white-space: nowrap;
 }
 
-
-/* =====================================================
+/* =========================================================
    ANIMAÇÕES
-   ===================================================== */
+   ========================================================= */
 
-@keyframes logoEntrance {
-
-  0% {
-
-    opacity: 0;
-
-    transform:
-      translateY(35px)
-      scale(0.72);
-
-  }
-
-  60% {
-
-    opacity: 1;
-
-    transform:
-      translateY(-5px)
-      scale(1.04);
-
-  }
-
-  100% {
-
-    opacity: 1;
-
-    transform:
-      translateY(0)
-      scale(1);
-
-  }
-
+@keyframes fadeInUp{
+  from{ opacity: 0; transform: translateY(16px); }
+  to{ opacity: 1; transform: translateY(0); }
 }
 
-
-@keyframes logoFloat {
-
-  0%,
-  100% {
-
-    transform:
-      translateY(0);
-
-  }
-
-  50% {
-
-    transform:
-      translateY(-7px);
-
-  }
-
+@keyframes brilho{
+  0%, 100%{ filter: drop-shadow(0 0 14px rgba(244,192,74,0.35)); }
+  50%{ filter: drop-shadow(0 0 28px rgba(244,192,74,0.6)); }
 }
 
-
-@keyframes logoGlow {
-
-  0% {
-
-    opacity: 0.55;
-
-    transform: scale(0.92);
-
-  }
-
-  100% {
-
-    opacity: 1;
-
-    transform: scale(1.08);
-
-  }
-
-}
-
-
-@keyframes sunGlow {
-
-  0% {
-
-    opacity: 0.55;
-
-    transform:
-      translateX(-50%)
-      scale(0.92);
-
-  }
-
-  100% {
-
-    opacity: 1;
-
-    transform:
-      translateX(-50%)
-      scale(1.08);
-
-  }
-
-}
-
-
-@keyframes ambientMove {
-
-  0% {
-
-    transform:
-      translate(0, 0);
-
-  }
-
-  100% {
-
-    transform:
-      translate(-30px, 30px);
-
-  }
-
-}
-
-
-@keyframes ambientMoveTwo {
-
-  0% {
-
-    transform:
-      translate(0, 0);
-
-  }
-
-  100% {
-
-    transform:
-      translate(35px, -20px);
-
-  }
-
-}
-
-
-@keyframes textEntrance {
-
-  0% {
-
-    opacity: 0;
-
-    transform:
-      translateY(15px);
-
-  }
-
-  100% {
-
-    opacity: 1;
-
-    transform:
-      translateY(0);
-
-  }
-
-}
-
-
-@keyframes loadingProgress {
-
-  0% {
-
-    width: 0%;
-
-  }
-
-  20% {
-
-    width: 24%;
-
-  }
-
-  50% {
-
-    width: 52%;
-
-  }
-
-  75% {
-
-    width: 78%;
-
-  }
-
-  100% {
-
-    width: 100%;
-
-  }
-
-}
-
-
-/* =====================================================
-   CELULARES MAIORES
-   ===================================================== */
-
-@media (min-height: 750px) {
-
-  .splash-logo-area {
-
-    width: 270px;
-    height: 270px;
-
-    margin-top: -80px;
-
-  }
-
-
-  .splash-logo {
-
-    width: 245px;
-
-  }
-
-
-  .splash-description {
-
-    font-size: 18px;
-
-  }
-
-}
-
-
-/* =====================================================
-   TELAS LARGAS
-   ===================================================== */
-
-@media (min-width: 600px) {
-
-  .splash-content {
-
-    max-width: 430px;
-
-    margin: 0 auto;
-
-  }
-
+@keyframes carregar{
+  0%{ width: 0%; }
+  100%{ width: 100%; }
 }
