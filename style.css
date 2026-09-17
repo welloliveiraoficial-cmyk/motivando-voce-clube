@@ -1,936 +1,764 @@
+/* =====================================================
+   MOTIVANDO VOCÊ CLUBE
+   TELA DE ABERTURA
+   ===================================================== */
+
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
+}
+
 
 html,
 body {
-width: 100%;
-min-height: 100%;
-font-family: Arial, Helvetica, sans-serif;
-background: #f8f5fc;
-color: #241b35;
+  width: 100%;
+  min-height: 100%;
 }
+
 
 body {
-overflow-x: hidden;
+  overflow: hidden;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background: #031a3d;
 }
 
-button,
-input {
-font-family: inherit;
-}
 
-button {
-border: none;
-cursor: pointer;
-}
-
-.screen {
-width: 100%;
-min-height: 100vh;
-}
-
-.hidden {
-display: none !important;
-}
-
-/* =========================================
-TELA DE ABERTURA
-========================================= */
+/* =====================================================
+   TELA
+   ===================================================== */
 
 .splash-screen {
-position: relative;
 
-width: 100%;
-min-height: 100vh;
-min-height: 100dvh;
+  position: relative;
 
-display: flex;
-align-items: center;
-justify-content: center;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
 
-overflow: hidden;
+  overflow: hidden;
 
-background:
-radial-gradient(
-circle at 50% 38%,
-#a45cf0 0%,
-#8039d8 25%,
-#6424bd 55%,
-#45158d 100%
-);
+  background:
+    linear-gradient(
+      180deg,
+      #021633 0%,
+      #03285a 42%,
+      #031a3d 100%
+    );
+
+  color: #ffffff;
+
 }
 
-/* brilho superior */
 
-.splash-screen::before {
-content: "";
+/* =====================================================
+   FUNDO CINEMATOGRÁFICO
+   ===================================================== */
 
-position: absolute;
+.splash-background {
 
-width: 320px;
-height: 320px;
+  position: absolute;
 
-top: -130px;
-right: -100px;
+  inset: 0;
 
-border-radius: 50%;
+  background:
 
-background: rgba(255, 255, 255, 0.10);
+    radial-gradient(
+      ellipse at 50% 76%,
+      rgba(255, 174, 48, 0.32) 0%,
+      rgba(255, 151, 33, 0.12) 18%,
+      transparent 42%
+    ),
 
-filter: blur(5px);
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(0, 120, 255, 0.28) 0%,
+      transparent 55%
+    ),
 
-animation: lightMove 6s ease-in-out infinite alternate;
+    linear-gradient(
+      180deg,
+      #021631 0%,
+      #063568 48%,
+      #092b55 70%,
+      #03152f 100%
+    );
+
+  transform: scale(1.05);
+
 }
 
-/* brilho inferior */
 
-.splash-screen::after {
-content: "";
+/* =====================================================
+   EFEITO DE LUZ NO HORIZONTE
+   ===================================================== */
 
-position: absolute;
+.splash-background::before {
 
-width: 300px;
-height: 300px;
+  content: "";
 
-bottom: -150px;
-left: -100px;
+  position: absolute;
 
-border-radius: 50%;
+  left: 50%;
+  bottom: 20%;
 
-background: rgba(255, 255, 255, 0.08);
+  width: 170px;
+  height: 170px;
 
-filter: blur(8px);
+  transform: translateX(-50%);
 
-animation: lightMove 7s ease-in-out infinite alternate-reverse;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 209, 75, 0.95) 0%,
+      rgba(255, 170, 42, 0.55) 18%,
+      rgba(255, 145, 20, 0.15) 45%,
+      transparent 70%
+    );
+
+  filter: blur(4px);
+
+  animation: sunGlow 3s ease-in-out infinite alternate;
+
 }
+
+
+/* =====================================================
+   SIMULAÇÃO DE MONTANHAS
+   ===================================================== */
+
+.splash-background::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: -10%;
+  bottom: -4%;
+
+  width: 120%;
+  height: 38%;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      transparent 0 24%,
+      rgba(5, 23, 48, 0.95) 25% 42%,
+      transparent 43%
+    ),
+
+    linear-gradient(
+      35deg,
+      transparent 0 28%,
+      rgba(3, 18, 40, 0.96) 29% 54%,
+      transparent 55%
+    ),
+
+    linear-gradient(
+      155deg,
+      transparent 0 46%,
+      rgba(2, 14, 32, 1) 47% 100%
+    );
+
+}
+
+
+/* =====================================================
+   CAMADA ESCURA
+   ===================================================== */
+
+.splash-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(0, 10, 28, 0.15) 0%,
+      rgba(0, 14, 35, 0.08) 40%,
+      rgba(0, 8, 22, 0.62) 82%,
+      rgba(0, 6, 17, 0.90) 100%
+    );
+
+  z-index: 2;
+
+}
+
+
+/* =====================================================
+   LUZES AMBIENTAIS
+   ===================================================== */
+
+.ambient-light {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+}
+
+
+.light-one {
+
+  width: 280px;
+  height: 280px;
+
+  top: -130px;
+  right: -120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(20, 126, 255, 0.20),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  animation: ambientMove 6s ease-in-out infinite alternate;
+
+}
+
+
+.light-two {
+
+  width: 230px;
+  height: 230px;
+
+  bottom: 8%;
+  left: -120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 193, 48, 0.12),
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  animation: ambientMoveTwo 7s ease-in-out infinite alternate;
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+   ===================================================== */
 
 .splash-content {
-position: relative;
 
-z-index: 2;
+  position: relative;
 
-width: 100%;
-max-width: 430px;
+  z-index: 5;
 
-min-height: 100vh;
-min-height: 100dvh;
+  width: 100%;
+  height: 100%;
 
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  display: flex;
 
-padding:
-env(safe-area-inset-top)
-28px
-env(safe-area-inset-bottom)
-28px;
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+
+    env(safe-area-inset-top)
+
+    28px
+
+    env(safe-area-inset-bottom);
+
 }
 
-/* =========================================
-LOGO
-========================================= */
 
-.logo-container {
-position: relative;
+/* =====================================================
+   LOGO
+   ===================================================== */
 
-width: 235px;
-height: 235px;
+.splash-logo-area {
 
-display: flex;
-align-items: center;
-justify-content: center;
+  position: relative;
 
-animation: logoEntrance 1.2s cubic-bezier(.22,.61,.36,1) forwards;
+  width: 245px;
+  height: 245px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: -70px;
+
+  animation: logoEntrance 1.2s ease-out both;
+
 }
+
 
 /* brilho atrás da logo */
 
-.logo-container::before {
-content: "";
+.splash-logo-area::before {
 
-position: absolute;
+  content: "";
 
-width: 210px;
-height: 210px;
+  position: absolute;
 
-border-radius: 50%;
+  width: 230px;
+  height: 230px;
 
-background: rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
 
-filter: blur(18px);
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 196, 55, 0.20) 0%,
+      rgba(0, 124, 255, 0.13) 35%,
+      transparent 70%
+    );
 
-animation: logoGlow 3s ease-in-out infinite;
+  filter: blur(18px);
+
+  animation: logoGlow 3s ease-in-out infinite alternate;
+
 }
 
-.app-logo {
-position: relative;
 
-width: 100%;
-max-width: 235px;
-height: auto;
+/* logo */
 
-object-fit: contain;
+.splash-logo {
 
-filter:
-drop-shadow(
-0 18px 30px rgba(0, 0, 0, 0.24)
-);
+  position: relative;
 
-animation:
-logoFloat 4s ease-in-out 1.2s infinite;
+  width: 225px;
+  max-width: 82vw;
+
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+
+    drop-shadow(
+      0 0 12px rgba(255, 194, 50, 0.28)
+    )
+
+    drop-shadow(
+      0 12px 28px rgba(0, 0, 0, 0.50)
+    );
+
+  animation: logoFloat 4s ease-in-out infinite;
+
 }
 
-/* =========================================
-TEXTO DA ABERTURA
-========================================= */
 
-.splash-brand {
-margin-top: 22px;
+/* =====================================================
+   TEXTO
+   ===================================================== */
 
-text-align: center;
+.splash-text {
 
-opacity: 0;
+  margin-top: -12px;
 
-animation:
-textEntrance 0.9s ease 0.7s forwards;
+  text-align: center;
+
+  animation: textEntrance 1.2s 0.35s ease-out both;
+
 }
 
-.splash-brand h1 {
-color: #ffffff;
 
-font-size: 27px;
-font-weight: 800;
+.splash-description {
 
-letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.94);
 
-text-shadow:
-0 4px 14px rgba(0, 0, 0, 0.16);
+  font-size: 17px;
+
+  line-height: 1.35;
+
+  font-weight: 400;
+
+  letter-spacing: 0.2px;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.65);
+
 }
 
-.splash-brand p {
-margin-top: 5px;
 
-color: rgba(255, 255, 255, 0.78);
-
-font-size: 13px;
-
-letter-spacing: 1.5px;
-}
-
-/* =========================================
-CARREGAMENTO
-========================================= */
+/* =====================================================
+   CARREGAMENTO
+   ===================================================== */
 
 .loading-area {
-width: 100%;
-max-width: 250px;
 
-margin-top: 55px;
+  position: absolute;
 
-text-align: center;
+  bottom: 7.5%;
 
-opacity: 0;
+  left: 50%;
 
-animation:
-textEntrance 0.8s ease 1s forwards;
+  transform: translateX(-50%);
+
+  width: min(210px, 65vw);
+
+  text-align: center;
+
+  animation: textEntrance 1s 0.6s ease-out both;
+
 }
+
+
+/* barra */
 
 .loading-bar {
-position: relative;
 
-width: 100%;
-height: 4px;
+  width: 100%;
 
-overflow: hidden;
+  height: 6px;
 
-border-radius: 20px;
+  overflow: hidden;
 
-background: rgba(255, 255, 255, 0.20);
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(0, 0, 0, 0.20);
+
 }
+
+
+/* progresso */
 
 .loading-progress {
-position: relative;
 
-width: 0;
-height: 100%;
+  width: 0%;
 
-border-radius: 20px;
+  height: 100%;
 
-background: #ffffff;
+  border-radius: 20px;
 
-box-shadow:
-0 0 12px rgba(255, 255, 255, 0.8);
+  background:
 
-animation:
-loadingProgress 2.4s cubic-bezier(.4,0,.2,1) forwards;
+    linear-gradient(
+      90deg,
+      #f5b51b,
+      #ffd84a,
+      #fff1a3,
+      #f5b51b
+    );
+
+  box-shadow:
+    0 0 10px rgba(255, 203, 55, 0.85);
+
+  animation:
+    loadingProgress 2.8s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+
 }
 
-/* pequeno brilho percorrendo a barra */
 
-.loading-progress::after {
-content: "";
-
-position: absolute;
-
-top: 0;
-right: 0;
-
-width: 55px;
-height: 100%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,0.9),
-transparent
-);
-
-animation: loadingShine 1.1s linear infinite;
-}
+/* texto */
 
 .loading-text {
-margin-top: 14px;
 
-color: rgba(255, 255, 255, 0.72);
+  margin-top: 10px;
 
-font-size: 11px;
+  color:
+    rgba(255, 255, 255, 0.82);
 
-letter-spacing: 0.5px;
+  font-size: 12px;
+
+  letter-spacing: 0.4px;
+
+  text-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.65);
+
 }
 
-/* =========================================
-LOGIN
-========================================= */
 
-.login-screen {
-min-height: 100vh;
-min-height: 100dvh;
+/* =====================================================
+   ESCONDER TELAS FUTURAS
+   ===================================================== */
 
-display: flex;
-justify-content: center;
+.hidden {
 
-background:
-radial-gradient(
-circle at top right,
-rgba(137, 76, 231, 0.18),
-transparent 35%
-),
-#f8f5fc;
+  display: none !important;
+
 }
 
-.login-content {
-width: 100%;
-max-width: 440px;
 
-min-height: 100vh;
-min-height: 100dvh;
-
-display: flex;
-flex-direction: column;
-align-items: center;
-
-padding: 50px 25px 25px;
-}
-
-.login-logo-container {
-width: 110px;
-height: 110px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-animation:
-loginLogoEntrance 0.8s ease;
-}
-
-.login-logo {
-width: 100%;
-height: auto;
-
-object-fit: contain;
-}
-
-.login-title-area {
-text-align: center;
-
-margin-top: 12px;
-}
-
-.login-title-area h1 {
-color: #5420aa;
-
-font-size: 28px;
-font-weight: 800;
-}
-
-.login-title-area p {
-color: #8b55d9;
-
-font-size: 21px;
-font-weight: 700;
-
-margin-top: 2px;
-}
-
-.login-title-area span {
-display: block;
-
-margin-top: 12px;
-
-color: #756d82;
-
-font-size: 14px;
-}
-
-.login-card {
-width: 100%;
-
-margin-top: 35px;
-padding: 27px 22px;
-
-background: rgba(255, 255, 255, 0.92);
-
-border: 1px solid rgba(108, 43, 217, 0.08);
-
-border-radius: 25px;
-
-box-shadow:
-0 15px 45px rgba(74, 36, 122, 0.10);
-}
-
-.login-card h2 {
-color: #2c203e;
-
-font-size: 23px;
-font-weight: 800;
-}
-
-.login-description {
-margin-top: 7px;
-
-color: #81798c;
-
-font-size: 14px;
-}
-
-.input-container {
-margin-top: 22px;
-}
-
-.input-container input {
-width: 100%;
-height: 55px;
-
-padding: 0 17px;
-
-border: 1.5px solid #e1dbe9;
-
-border-radius: 16px;
-
-outline: none;
-
-background: #fbfaff;
-
-color: #30253d;
-
-font-size: 15px;
-
-transition: 0.25s;
-}
-
-.input-container input:focus {
-border-color: #7b3dd2;
-
-box-shadow:
-0 0 0 4px rgba(123, 61, 210, 0.10);
-}
-
-.primary-button {
-width: 100%;
-height: 55px;
-
-margin-top: 15px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-gap: 12px;
-
-border-radius: 16px;
-
-background:
-linear-gradient(
-135deg,
-#8a48e4,
-#5c22b8
-);
-
-color: #ffffff;
-
-font-size: 16px;
-font-weight: 700;
-
-box-shadow:
-0 10px 20px rgba(92, 34, 184, 0.25);
-
-transition:
-transform 0.2s,
-box-shadow 0.2s;
-}
-
-.primary-button:active {
-transform: scale(0.97);
-}
-
-.button-arrow {
-font-size: 21px;
-}
-
-.login-footer {
-margin-top: auto;
-padding-top: 35px;
-
-text-align: center;
-
-color: #938b9e;
-
-font-size: 12px;
-}
-
-/* =========================================
-HOME
-========================================= */
-
-.home-screen {
-background:
-linear-gradient(
-180deg,
-#f8f5fc 0%,
-#ffffff 100%
-);
-
-padding-bottom: 90px;
-}
-
-.home-header {
-padding: 45px 22px 25px;
-
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-
-.welcome-small {
-color: #887d95;
-
-font-size: 14px;
-}
-
-.header-text h1 {
-margin-top: 2px;
-
-color: #32184e;
-
-font-size: 29px;
-font-weight: 800;
-}
-
-.welcome-message {
-margin-top: 4px;
-
-color: #857b91;
-
-font-size: 13px;
-}
-
-.profile-button {
-width: 52px;
-height: 52px;
-
-border-radius: 50%;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-background:
-linear-gradient(
-135deg,
-#8b4be3,
-#5b23b8
-);
-
-color: #ffffff;
-
-font-size: 18px;
-font-weight: 800;
-
-box-shadow:
-0 8px 18px rgba(91, 35, 184, 0.25);
-}
-
-.home-content {
-padding: 0 20px;
-}
-
-.daily-card {
-padding: 22px;
-
-display: flex;
-
-gap: 17px;
-
-align-items: flex-start;
-
-border-radius: 24px;
-
-background:
-linear-gradient(
-135deg,
-#7d3bd3,
-#5120a5
-);
-
-color: #ffffff;
-
-box-shadow:
-0 15px 30px rgba(81, 32, 165, 0.20);
-}
-
-.daily-icon {
-width: 45px;
-height: 45px;
-
-flex-shrink: 0;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-border-radius: 15px;
-
-background: rgba(255, 255, 255, 0.16);
-
-font-size: 22px;
-}
-
-.daily-label {
-font-size: 10px;
-
-font-weight: 700;
-
-letter-spacing: 1px;
-
-opacity: 0.75;
-}
-
-.daily-text h2 {
-margin-top: 8px;
-
-font-size: 17px;
-
-line-height: 1.45;
-}
-
-.section-title {
-margin: 30px 2px 17px;
-
-color: #32213f;
-
-font-size: 20px;
-
-font-weight: 800;
-}
-
-.feature-grid {
-display: grid;
-
-grid-template-columns: 1fr 1fr;
-
-gap: 14px;
-}
-
-.feature-card {
-min-height: 150px;
-
-padding: 18px;
-
-text-align: left;
-
-border-radius: 22px;
-
-background: #ffffff;
-
-border: 1px solid #eee8f4;
-
-box-shadow:
-0 8px 25px rgba(55, 30, 80, 0.06);
-
-transition:
-transform 0.2s,
-box-shadow 0.2s;
-}
-
-.feature-card:active {
-transform: scale(0.96);
-}
-
-.feature-icon {
-width: 43px;
-height: 43px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-border-radius: 14px;
-
-background: #f3eafd;
-
-font-size: 21px;
-}
-
-.feature-card h3 {
-margin-top: 14px;
-
-color: #392449;
-
-font-size: 15px;
-}
-
-.feature-card p {
-margin-top: 5px;
-
-color: #918797;
-
-font-size: 11px;
-
-line-height: 1.4;
-}
-
-/* =========================================
-NAVEGAÇÃO
-========================================= */
-
-.bottom-navigation {
-position: fixed;
-
-left: 50%;
-bottom: 0;
-
-transform: translateX(-50%);
-
-width: 100%;
-max-width: 500px;
-
-height: 76px;
-
-padding: 8px 10px;
-
-display: flex;
-align-items: center;
-justify-content: space-around;
-
-background: rgba(255, 255, 255, 0.96);
-
-border-top: 1px solid #eee9f3;
-
-box-shadow:
-0 -8px 25px rgba(45, 25, 70, 0.06);
-
-z-index: 10;
-}
-
-.nav-item {
-min-width: 65px;
-
-display: flex;
-flex-direction: column;
-align-items: center;
-
-gap: 4px;
-
-background: transparent;
-
-color: #9b91a4;
-
-font-size: 10px;
-}
-
-.nav-icon {
-font-size: 20px;
-}
-
-.nav-item.active {
-color: #6b2cc5;
-
-font-weight: 700;
-}
-
-/* =========================================
-ANIMAÇÕES DA ABERTURA
-========================================= */
+/* =====================================================
+   ANIMAÇÕES
+   ===================================================== */
 
 @keyframes logoEntrance {
 
-0% {
-opacity: 0;
+  0% {
 
-transform:
-  scale(0.55)
-  translateY(25px);
+    opacity: 0;
+
+    transform:
+      translateY(35px)
+      scale(0.72);
+
+  }
+
+  60% {
+
+    opacity: 1;
+
+    transform:
+      translateY(-5px)
+      scale(1.04);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
 
 }
 
-55% {
-opacity: 1;
-
-transform:
-  scale(1.06)
-  translateY(-3px);
-
-}
-
-100% {
-opacity: 1;
-
-transform:
-  scale(1)
-  translateY(0);
-
-}
-}
 
 @keyframes logoFloat {
 
-0%,
-100% {
-transform: translateY(0);
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-7px);
+
+  }
+
 }
 
-50% {
-transform: translateY(-9px);
-}
-}
 
 @keyframes logoGlow {
 
-0%,
-100% {
-transform: scale(0.92);
+  0% {
 
-opacity: 0.45;
+    opacity: 0.55;
+
+    transform: scale(0.92);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform: scale(1.08);
+
+  }
 
 }
 
-50% {
-transform: scale(1.08);
 
-opacity: 0.85;
+@keyframes sunGlow {
+
+  0% {
+
+    opacity: 0.55;
+
+    transform:
+      translateX(-50%)
+      scale(0.92);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(1.08);
+
+  }
 
 }
+
+
+@keyframes ambientMove {
+
+  0% {
+
+    transform:
+      translate(0, 0);
+
+  }
+
+  100% {
+
+    transform:
+      translate(-30px, 30px);
+
+  }
+
 }
 
-@keyframes lightMove {
 
-0% {
-transform: translate(0, 0) scale(1);
+@keyframes ambientMoveTwo {
+
+  0% {
+
+    transform:
+      translate(0, 0);
+
+  }
+
+  100% {
+
+    transform:
+      translate(35px, -20px);
+
+  }
+
 }
 
-100% {
-transform: translate(-30px, 30px) scale(1.15);
-}
-}
 
 @keyframes textEntrance {
 
-0% {
-opacity: 0;
+  0% {
 
-transform: translateY(12px);
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
 
 }
 
-100% {
-opacity: 1;
-
-transform: translateY(0);
-
-}
-}
 
 @keyframes loadingProgress {
 
-0% {
-width: 0;
-}
+  0% {
 
-100% {
-width: 100%;
-}
-}
+    width: 0%;
 
-@keyframes loadingShine {
+  }
 
-0% {
-transform: translateX(-60px);
-}
+  20% {
 
-100% {
-transform: translateX(260px);
-}
-}
+    width: 24%;
 
-@keyframes loginLogoEntrance {
+  }
 
-0% {
-opacity: 0;
+  50% {
 
-transform:
-  translateY(-20px)
-  scale(0.8);
+    width: 52%;
 
-}
+  }
 
-100% {
-opacity: 1;
+  75% {
 
-transform:
-  translateY(0)
-  scale(1);
+    width: 78%;
+
+  }
+
+  100% {
+
+    width: 100%;
+
+  }
 
 }
+
+
+/* =====================================================
+   CELULARES MAIORES
+   ===================================================== */
+
+@media (min-height: 750px) {
+
+  .splash-logo-area {
+
+    width: 270px;
+    height: 270px;
+
+    margin-top: -80px;
+
+  }
+
+
+  .splash-logo {
+
+    width: 245px;
+
+  }
+
+
+  .splash-description {
+
+    font-size: 18px;
+
+  }
+
 }
 
-/* =========================================
-TELAS MAIORES
-========================================= */
+
+/* =====================================================
+   TELAS LARGAS
+   ===================================================== */
 
 @media (min-width: 600px) {
 
-.login-content {
-padding-top: 70px;
-}
+  .splash-content {
 
-.home-content {
-max-width: 600px;
+    max-width: 430px;
 
-margin: 0 auto;
+    margin: 0 auto;
 
-}
-
-.home-header {
-max-width: 600px;
-
-margin: 0 auto;
-
-}
+  }
 
 }
