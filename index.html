@@ -1,107 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  >
-
-  <meta name="theme-color" content="#031A3D">
-
-  <meta
-    name="description"
-    content="Motivando Você Clube — Histórias, inspiração e esperança para uma vida melhor."
-  >
-
-  <title>Motivando Você Clube</title>
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Motivando Você Clube</title>
+<link rel="icon" href="imagens/logo-motivando.png" type="image/png">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- ==========================================
-       TELA DE ABERTURA
-  =========================================== -->
+  <!-- TELA 1 — ABERTURA -->
+  <section id="tela-abertura" class="tela tela-ativa">
+    <img class="bg-foto" src="imagens/tela-abertura.jpg" alt="Nascer do sol nas montanhas">
+    <div class="overlay-abertura"></div>
 
-  <section id="splashScreen" class="splash-screen">
-
-    <!-- Brilho decorativo -->
-    <div class="ambient-light light-one"></div>
-    <div class="ambient-light light-two"></div>
-
-
-    <!-- Imagem de fundo -->
-    <div class="splash-background"></div>
-
-
-    <!-- Escurecimento -->
-    <div class="splash-overlay"></div>
-
-
-    <!-- Conteúdo -->
-    <div class="splash-content">
-
-      <div class="splash-logo-area">
-
-        <img
-          src="assets/logo.png"
-          alt="Motivando Você Clube"
-          class="splash-logo"
-        >
-
+    <div class="conteudo-abertura">
+      <div class="logo-wrap">
+        <img class="logo-abertura" src="imagens/logo-motivando.png" alt="Motivando Você Clube">
       </div>
 
-
-      <div class="splash-text">
-
-        <p class="splash-description">
-          Histórias, inspiração<br>
-          e esperança para<br>
-          uma vida melhor.
-        </p>
-
-      </div>
-
-
-      <!-- Área inferior -->
-      <div class="loading-area">
-
-        <div class="loading-bar">
-
-          <div class="loading-progress"></div>
-
-        </div>
-
-        <p class="loading-text">
-          Carregando...
-        </p>
-
-      </div>
-
+      <p class="tagline-abertura">Histórias, inspiração<br>e esperança para uma vida melhor.</p>
     </div>
 
+    <div class="loading-wrap">
+      <div class="loading-track">
+        <div class="loading-bar" id="barra-carregamento"></div>
+      </div>
+      <div class="loading-label">Carregando...</div>
+    </div>
+
+    <div class="footer-msg">Juntos por uma vida melhor</div>
   </section>
 
-
-  <!-- ==========================================
-       LOGIN
-       Será desenvolvido na próxima etapa
-  =========================================== -->
-
-  <section
-    id="loginScreen"
-    class="login-screen hidden"
-  >
-
-  </section>
-
+  <!-- Próximas telas (login, cadastro, início...) serão adicionadas nas próximas fases -->
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
